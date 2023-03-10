@@ -1,0 +1,36 @@
+<MainLayout>
+    orientation: "vertical"
+
+    canvas.before:
+        Rectangle:
+            source: "face.png"
+            size: root.width, root.height
+
+    Label:
+        text: "Yüz tanıma uygulamama hoşgeldin"
+        size_hint: None, None
+        pos_hint: {'center_x': .5, 'top': 1}
+        font_size: 30
+        color: (124/255, 131/255, 147/255, 1)
+
+    MyCamera:
+        id: camera
+        size_hint: None, None
+        resolution: (640, 480)
+        size: '500dp', '240dp'
+        pos_hint: {'center_x': .5}
+        detect: False
+
+    BoxLayout:
+        orientation: "vertical"
+
+        ToggleButton:
+            text: "Yüz tanımaya başlat / durdur "
+            color: (43/255,143/255,132/255, 1)
+            on_press: camera.detect = not camera.detect
+            size_hint: None, None
+            size: '200dp', '34dp'
+            pos_hint: {'center_x': .5}
+            background_color: (37/255,44/255,60/255)
+
+
